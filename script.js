@@ -13,7 +13,7 @@ const againButton = document.querySelector('.again');
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
-let previousGuess = null; // Variable pour stocker le nombre deviné précédemment
+let previousGuess = null; 
 
 function displayMessage(msg) {
   message.textContent = msg;
@@ -45,8 +45,8 @@ checkButton.addEventListener('click', function() {
       highscoreLabel.textContent = highscore;
     }
   } else if (guess !== secretNumber) { 
-    if (guess == previousGuess) { // Vérifie si le nombre deviné est le même que le précédent
-      displayMessage('Vous avez déjà deviné ce numéro!'); // Affichez un message d'erreur
+    if (guess == previousGuess) { 
+      displayMessage('Vous avez déjà deviné ce numéro!'); 
     } else {
       if (score > 1) {
         displayMessage(guess > secretNumber ? '📈 Trop haut!' : '📉 Trop bas!');
@@ -55,7 +55,7 @@ checkButton.addEventListener('click', function() {
         displayMessage('💥 Vous avez perdu le jeu!');
         updateScore(0);
       }
-      previousGuess = guess; // Met à jour le nombre précédent deviné
+      previousGuess = guess; 
     }
   }
 });
@@ -69,5 +69,7 @@ againButton.addEventListener('click', function() {
   guessInput.value = '';
   document.body.style.backgroundColor = '#222';
   numberDisplay.style.width = '15rem';
+  previousGuess = null;
 });
+
 
