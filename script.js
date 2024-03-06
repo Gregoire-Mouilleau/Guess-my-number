@@ -10,7 +10,7 @@ const highscoreLabel = document.querySelector('.highscore');
 const numberDisplay = document.querySelector('.number');
 const againButton = document.querySelector('.again');
 
-let secretNumber = Math.floor(Math.random() * 21) + 1;
+let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
 let previousGuess = null; // Variable pour stocker le nombre deviné précédemment
