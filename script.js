@@ -1,17 +1,18 @@
 class JS_GuessMyNumber {
   constructor() {
+    // Initialisation des variables
     this.secretNumber = Math.floor(Math.random() * 20) + 1;
     this.score = 20;
     this.highscore = 0;
     this.previousGuess = null;
+    this.gameOver = false; // Permet de savoir si la partie est finie
 
     /********************************************* Fonctions ****************************************************/
-    
     this.guessInput = document.querySelector('.guess');
     this.checkButton = document.querySelector('.check');
     this.message = document.querySelector('.message');
     this.scoreLabel = document.querySelector('.score');
-    this.highscoreLabel = document.getElementById('highscore'); 
+    this.highscoreLabel = document.getElementById('highscore');
     this.numberDisplay = document.querySelector('.number');
     this.againButton = document.querySelector('.again');
     this.checkButton.addEventListener('click', this.checkGuess.bind(this));
@@ -25,6 +26,8 @@ class JS_GuessMyNumber {
 
   // Fonction bouton Check
   checkGuess() {
+    if (this.gameOver) return; // Vérifie si le jeu est terminé
+
     const guess = Number(this.guessInput.value);
     if (guess === this.secretNumber) {
       this.message.textContent = '🎉 Bravo! Vous avez deviné le numéro!';
@@ -35,6 +38,9 @@ class JS_GuessMyNumber {
         this.highscore = this.score;
         this.highscoreLabel.textContent = this.highscore;
       }
+      this.gameOver = true; // Déf le jeu comme terminé
+      this.guessInput.disabled = true; // Désactive la saisie
+      this.checkButton.disabled = true; // Désactive le bouton de vérif
     } else if (guess < 1 || guess > 20 || isNaN(guess)) {
       this.message.textContent = '⛔️ Aucun numéro!';
     } else if (guess === this.previousGuess) {
@@ -53,8 +59,7 @@ class JS_GuessMyNumber {
     }
   }
 
-
-  // Fonction bouton again
+  // Fonction bouton Again
   resetGame() {
     this.score = 20;
     this.secretNumber = Math.floor(Math.random() * 20) + 1;
@@ -65,6 +70,9 @@ class JS_GuessMyNumber {
     document.body.style.backgroundColor = '#222';
     this.numberDisplay.style.width = '15rem';
     this.previousGuess = null;
+    this.gameOver = false; // Reset l'état du jeu
+    this.guessInput.disabled = false; // Réactive la saisie
+    this.checkButton.disabled = false; // Réactive le bouton de vérification
   }
 }
 
