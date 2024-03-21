@@ -1,7 +1,7 @@
 #GUESS MY NUMBER
 
 Le jeu du Guess My Number est un jeu simple de compréhension.
-Un numéro est chosi aléatoirement, ici entre 1 & 20, et il faut retrouver se numéro le plus rapidement possible.
+Un numéro est choisi aléatoirement, ici entre 1 & 20, et il faut retrouver se numéro le plus rapidement possible.
 Chaque fois qu'on valide un numéro, si celui-ci est faux alors on perd 1 point, une fois à 0 point on perd la partie.
 
 Pour nous aider nous avons une indication de si le chiffre est plus petit ou plus grand que le nombre validé précédement.
